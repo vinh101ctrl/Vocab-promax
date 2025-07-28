@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vocabulary Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f6fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #2f3640;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      margin: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #0097e6;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #00a8ff;
+    }
+    #answer {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #273c75;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vocabulary Test</h1>
+  <div class="card">
+    <div id="question">Click "Next" to start!</div>
+    <button onclick="showAnswer()">Show Answer</button>
+    <div id="answer"></div>
+    <button onclick="nextWord()">Next</button>
+  </div>
+
+  <script>
+    const words = [
+      {en: "assistant", vi: "trợ lý"},
+      {en: "earn", vi: "kiếm (tiền, thu nhập)"},
+      {en: "resign", vi: "từ chức"},
+      {en: "conceited", vi: "tự phụ, kiêu ngạo"},
+      {en: "department", vi: "phòng ban"},
+      {en: "monument", vi: "đài tưởng niệm / công trình lịch sử"},
+      {en: "souvenirs", vi: "quà lưu niệm"},
+      {en: "delicious", vi: "ngon"},
+      {en: "bank loan", vi: "khoản vay ngân hàng"},
+      {en: "risk", vi: "rủi ro"},
+      {en: "late fee", vi: "phí trả chậm"},
+      {en: "due date", vi: "ngày đến hạn"},
+      {en: "swollen", vi: "bị sưng"},
+      {en: "allergic", vi: "dị ứng"},
+      {en: "ointment", vi: "thuốc mỡ"},
+      {en: "tablets", vi: "viên thuốc"},
+      {en: "uncertainty", vi: "sự bất định"},
+      {en: "tighten my belt", vi: "thắt lưng buộc bụng"},
+      {en: "count on", vi: "trông cậy vào"},
+      {en: "shoulder to cry on", vi: "người để chia sẻ, tâm sự"}
+    ];
+
+    let current = -1;
+
+    function nextWord() {
+      current = (current + 1) % words.length;
+      document.getElementById("question").textContent = words[current].en;
+      document.getElementById("answer").textContent = "";
+    }
+
+    function showAnswer() {
+      if (current >= 0) {
+        document.getElementById("answer").textContent = words[current].vi;
+      }
+    }
+  </script>
+</body>
+</html>
